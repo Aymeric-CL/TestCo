@@ -1,6 +1,6 @@
 package ProjetDonjonG1;
 
-// Class abstraite car on ne vas pas instancier un objet c'est abstrait.
+//  Class abstraite car on ne vas pas instancier un objet c'est abstrait.
 public abstract class Objet  {
 	
 	// variable name pour le nom de l'objet
