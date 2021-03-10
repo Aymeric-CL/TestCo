@@ -1,83 +1,112 @@
 package ProjetDonjonG1;
 
 public class Piege extends Objet {
-	private String piegeMecanique;
-	private String piegeMagique;
+	private String piege;
+	private int pvEnMoins = 0;
 	
 
 
+	
+	
 	public Piege ( String name) throws  ExceptionPiege, ExceptionObjet{
 		super(name);
 	}
 	
-	public String getPiegeMecanique() {
-		return piegeMecanique;
+	
+	
+	
+	
+	public String getPiege() {
+		return piege;
 	}
-
-	public void setPiegeMecanique(String piegeMecanique) throws ExceptionPiege {
-		if (piegeMecanique.length() >= 3) {
-			this.piegeMecanique = piegeMecanique;
+	
+	public void setPiege(String piege) throws ExceptionPiege {
+		if (piege.length() >= 3) {
+			this.piege = piege;
 		}
 		else
 			throw new ExceptionPiege("Le piege n'existe pas");
 	}
-			
 	
-	public String getPiegeMagique() {
-		return piegeMagique;
+	
+	
+	
+	
+	public int getPvEnMoins() {
+		return pvEnMoins;
 	}
 
-	public void setPiegeMagique(String piegeMagique) throws ExceptionPiege{
-		if (piegeMagique.length() >= 3) {
-			this.piegeMagique = piegeMagique;
+	public void setPvEnMoins(int pvEnMoins) throws ExceptionPiege {
+		if(pvEnMoins<=0) {
+			this.pvEnMoins = pvEnMoins; 
 		}
-		else 
-			throw new ExceptionPiege("Le piege n'existe pas");
-
+		else {
+			throw new ExceptionPiege("pvEnMoins est inferieur ou égale à 0");
+		}
 	}
-		
 	
 	
-	public int piegeMequa(int pv  )throws ExceptionPiege {
+	
+	
+	
+	public int piegeMequa( )throws ExceptionPiege {
 		int piegeAleatoire = 1 + (int)(Math.random() * ((3 - 1) + 1));
 		if(piegeAleatoire == 1 ) {
 			System.out.print("Vous avez declenché une chute de pierre ");
-			pv-=5;
+			pvEnMoins-=5;
 		}
 		else if (piegeAleatoire == 2 ){
 			System.out.print("Vous êtes tombé(e) dans une fosse ");
-			pv-=2;
-			
+			pvEnMoins-=2;	
 		}
 		else if (piegeAleatoire == 3 ){
 			System.out.print("Vous êtes dans une salle remplie d'eau ");
-			pv-=1;
+			pvEnMoins-=1;
 		}
 		else {
 			throw new ExceptionPiege("Le piege méquanique n'existe pas");
 		}
-		System.out.print("Le nombre de PV restant est de : ");
-		return pv;
+		return pvEnMoins;
 		
 	}
 	
 	
-	public int piegeMag(int pv )throws ExceptionPiege {
+	
+	
+	
+	public int piegeMag(  )throws ExceptionPiege {
 		int piegeAleatoire = 1 + (int)(Math.random() * ((2 - 1) + 1));
 		if(piegeAleatoire == 1) {
 			System.out.print("Vous avez reçus un sort d'immobilité ");
-			pv-=3;
+			pvEnMoins-=3;
 		}
 		else if (piegeAleatoire == 2 ){
-			System.out.print("Vous avez reçus un sort d'aveuglement");
-			pv-=2;
+			System.out.print("Vous avez reçus un sort d'aveuglement ");
+			pvEnMoins-=2;
 		}
-	
 		else {
-			throw new ExceptionPiege("Le piege méquanique n'existe pas");
+			throw new ExceptionPiege("Le piege méquanique n'existe pas ");
 		}
-		System.out.print("Le nombre de PV restant est de : ");
-		return  pv ;
+		return  pvEnMoins ;
 	}
+	
+	
+	
+	
+	
+	public int modificationPv() {
+		int pvEnMoins = this.pvEnMoins;
+		return pvEnMoins;
+	}
+	
+	
+	
+	
+	
+	public String toString() {
+		return super.toString()+ " vous avez perdu " + getPvEnMoins()+ " de point de vie";
+		
+	}
+
 }
 	
