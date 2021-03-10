@@ -1,7 +1,7 @@
 package ProjetDonjonG1;
 
 
-public class Objet {
+public abstract class Objet  {
 	
 	private String name;
 
@@ -41,4 +41,9 @@ public class Objet {
 			
 	}
 
+	
+	
+	public abstract int modificationPv();
+	
+	
 }
