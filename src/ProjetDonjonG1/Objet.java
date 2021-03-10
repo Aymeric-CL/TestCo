@@ -27,7 +27,7 @@ public abstract class Objet  {
 		if (name.length() >= 3 && isACaractere(name))
 			this.name = name;
 		else
-			throw new ExceptionObjet(" le nom de la fourmis n'est pas bon");
+			throw new ExceptionObjet(" le nom de l'objet n'est pas bon");
 	}
 	
 	
