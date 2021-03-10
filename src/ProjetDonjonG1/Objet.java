@@ -7,7 +7,7 @@ public abstract class Objet  {
 	private String name;
 
 	
-	// constructeur de name
+	// constructeur de name 
 	public Objet(String name) throws ExceptionObjet {
 		setName(name);
 		
