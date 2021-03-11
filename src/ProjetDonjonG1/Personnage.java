@@ -45,7 +45,7 @@ public class Personnage{
 	public void utiliserPotion() {
 		int guerison = 3;
 		int i = 0;
-		while((i<getInventaire().size())& getInventaire().get(i)!= Inventaire.Potion)){
+		while((i<getInventaire().size())& getInventaire().get(i)!= Inventaire.Potion){
 			i++;
 		}
 		if(getInventaire().get(i)==Inventaire.Potion) {
