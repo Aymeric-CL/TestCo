@@ -49,6 +49,8 @@ public abstract class Objet  {
 	
 	// methode qui va nous permettre d'enlever des pv au personnage.
 	public abstract int modificationPv();
+
+
 	
 	
 }

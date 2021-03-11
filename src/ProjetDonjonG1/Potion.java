@@ -2,6 +2,7 @@ package ProjetDonjonG1;
 
 public class Potion extends Objet{
 	
+	
 	/*
 	 * création de la variable potion
 	 */
@@ -46,11 +47,7 @@ public class Potion extends Objet{
 	 * on modifie la methode de objet pour retourner le gain 
 	 * que va apporter une potion au personnage
 	 */
-	@Override
-	public int modificationPv() {
-		int potion = this.potion;
-		return potion;
-	}
+	
 	
 	/*
 	 * on modifie la methode toString de objet pour savoir combien 
@@ -58,6 +55,14 @@ public class Potion extends Objet{
 	 */
 	public String toString() {
 		return super.toString()+" la potion rajoute "+getPotion()+" point de vie";
+	}
+
+
+
+	@Override
+	public int modificationPv() {
+		int potion = this.potion;
+		return potion;
 	}
 	
 	
