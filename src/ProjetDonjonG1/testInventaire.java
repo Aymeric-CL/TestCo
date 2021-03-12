@@ -2,7 +2,7 @@ package ProjetDonjonG1;
 
 public class testInventaire {
 
-	public static void main(String[] args) throws ExceptionObjet, ExceptionPotion {
+	public static void main(String[] args) throws ExceptionObjet, ExceptionPotion, ExceptionInventaire {
 		// TODO Auto-generated method stub
 		
 		Inventaire inventaire = new Inventaire();
