@@ -9,9 +9,11 @@ public class Inventaire {
 	private List<Objet>inventaire = new ArrayList<Objet>();
 	
 	
-	public void addPotion (Objet o) {
+	public void addPotion (Objet o) throws ExceptionInventaire {
 		if (o!= null)
 			inventaire.add(o);
+		else 
+			throw new ExceptionInventaire("Erreur dans l'inventaire");
 	}
 	public int size() {
 		return inventaire.size();
