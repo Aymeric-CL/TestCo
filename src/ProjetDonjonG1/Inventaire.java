@@ -2,21 +2,25 @@ package ProjetDonjonG1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
-public class Inventaire {
+import com.sun.org.apache.xml.internal.utils.IntStack;
+
+public class Inventaire extends Stack<Objet>{
 	
 	public static final Inventaire Potion = null;
-	private List<Objet>inventaire = new ArrayList<Objet>();
 	
 	
 	public void addPotion (Objet o) throws ExceptionInventaire {
 		if (o!= null)
-			inventaire.add(o);
+			this.add(o);
 		else 
 			throw new ExceptionInventaire("Erreur dans l'inventaire");
 	}
+
+
 	public int size() {
-		return inventaire.size();
+		return this.size();
 		
 	}
 
