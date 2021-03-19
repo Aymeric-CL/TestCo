@@ -1,50 +1,49 @@
 package ProjetDonjonG1;
 
 public class Objectif extends Objet{
-	private int box ; 
+	private  String[][] box ; 
+	
 // box est la case où ce trouve l'objectif a atteindre pour finir le jeu
 	
 	
 	
-	public Objectif (int box, String name) throws ExceptionObjet, ExceptionObjetif {
+	public Objectif ( String name) throws ExceptionObjet, ExceptionObjetif {
 		super(name);
-		setBox(box);
 	}
 	
 	
 	
 	
 	
-	public int getBox() {
+	public String[][] getBox() {
 		return box;
 	}
 	
-	public void setBox(int box) throws  ExceptionObjetif {
-		if (0< box )
-			this.box = box;
-		else {
-				throw new ExceptionObjetif("La case n'exise pas");
-		}
+	public void setBox(String[][] box)  {
+			this.box = box;	
 	}
 	
 	
 	
 	
-	
-	public void obectifAAtteindre (int box ,int casePersonnage) {
-			if(casePersonnage != box ) {
-				System.out.println("L'objectif n'est pas atteint veuilliez rejoué");
+
+	public boolean obectifAAtteindre (String [][] caseP , String[][] box ) {
+		boolean bol = false;
+			if(caseP.equals(box) ) {
+				System.out.println("L'objectif est atteint ");
+				bol = true ;
+				
 			}
 			else {
-				System.out.println("L'objectif est atteint ");
+				System.out.println("L'objectif n'est pas atteint veuilliez rejoué");
 			}
+			return bol;
 	}
-	
-	
-	
-	
+
+
 	
 	public int modificationPv() {
 		return 0;
 	}
 }
+
