@@ -1,16 +1,17 @@
 package ProjetDonjonG1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class Personnage{
+public class Personnage {
 	private int vie;
 	private String name;
-	private ArrayList<Inventaire>inventaire= new ArrayList<Inventaire>();
+	private Inventaire inventaire;
 	private boolean enVie = true;
 	
 
-	public Personnage(String name, int vie) throws ExceptionPersonnage {
+	public Personnage(String name, int vie) throws ExceptionPersonnage, ExceptionInventaire  {
 		setName(name);
 		setVie(vie);
 		
@@ -37,35 +38,23 @@ public class Personnage{
 		else
 			throw new ExceptionPersonnage(" le nom du personnage n'est pas bon");
 			
-		
-		
 	}
-	public ArrayList<Inventaire>getInventaire(){
-		return inventaire;
-	}
-	public void setInventaire(ArrayList<Inventaire> inventaire) {
-        this.inventaire = inventaire;
-    }
 	
 	public void mort() {
 		enVie=false;
 	}
 
-	public void utiliserPotion() throws ExceptionPersonnage {
-		int guerison = 3;
-		int i = 0;
-		while((i<getInventaire().size())& getInventaire().get(i)!= Inventaire.Potion){
-			i++;
-		}
-		if(getInventaire().get(i)==Inventaire.Potion) {
-            setVie(this.getVie()+guerison);
-            inventaire.remove(i);
+	private void utiliserPotion() throws ExceptionPersonnage, ExceptionInventaire {
+		if (!inventaire.isEmpty()) {
+			Objet objet = inventaire.pop();
+			int rajoutPv = objet.modificationPv();
+			this.vie+= rajoutPv;
 		}
 		
+			
+	
 	}
-	public void ramasserPotion(Potion potion, Personnage p) {
-		
-	}
+	
 	
 	public String toString() {
 		return "Point de vie de "+ name + " est " + vie;
