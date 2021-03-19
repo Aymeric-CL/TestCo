@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TestJeu {
 	
-	public static void main(String[] args) throws ExceptionGrille, ExceptionPersonnage,  ExceptionPotion, ExceptionObjet {
+	public static void main(String[] args) throws ExceptionGrille, ExceptionPersonnage,  ExceptionPotion, ExceptionObjet, ExceptionInventaire {
 		
 		//création d'un personnage :
 		Personnage p1 = new Personnage ("perso" , 50);
