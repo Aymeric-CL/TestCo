@@ -1,10 +1,6 @@
 package ProjetDonjonG1;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
-
-import com.sun.org.apache.xml.internal.utils.IntStack;
 
 public class Inventaire extends Stack<Objet>{
 	
