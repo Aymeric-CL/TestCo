@@ -65,7 +65,7 @@ public class Grille {
 				
 	}
 	
-	public void placer(int l, int c,String e) throws ExceptionGrille {
+	public void placerJoueur(int l, int c,String e) throws ExceptionGrille {
 		l=l-1;
 		c=c-1;
 		if(l<0 || c<0 || l>nbLig || c>nbCol) {
@@ -78,6 +78,70 @@ public class Grille {
 		else {
 			throw new ExceptionGrille("Zone occupée");
 		}
+	}
+	
+	public String placerPotion(int l, int c, Potion p ) throws ExceptionGrille{
+		l=l-1;
+		c=c-1;
+		if(l<0 || c<0 || l>nbLig || c>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			
+		}
+		if(grille[l][c]=="?") {
+			grille[l][c]= p.getName();
+		}
+		else {
+			throw new ExceptionGrille("Zone occupée");
+		}
+		return " La potion "+p.getName()+" est placé ";
+	}
+	
+	public String placerPiege(int l, int c, Piege p ) throws ExceptionGrille{
+		l=l-1;
+		c=c-1;
+		if(l<0 || c<0 || l>nbLig || c>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			
+		}
+		if(grille[l][c]=="?") {
+			grille[l][c]= p.getName();
+		}
+		else {
+			throw new ExceptionGrille("Zone occupée");
+		}
+		return " Le piege "+p.getName()+" est placé ";
+	}
+	
+	public String placerObjectif(int l, int c, Objectif p ) throws ExceptionGrille{
+		l=l-1;
+		c=c-1;
+		if(l<0 || c<0 || l>nbLig || c>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			
+		}
+		if(grille[l][c]=="?") {
+			grille[l][c]= p.getName();
+		}
+		else {
+			throw new ExceptionGrille("Zone occupée");
+		}
+		return " L'objectif "+p.getName()+" est placé ";
+	}
+	
+	public String placerMur(int l, int c, Potion p ) throws ExceptionGrille{
+		l=l-1;
+		c=c-1;
+		if(l<0 || c<0 || l>nbLig || c>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			
+		}
+		if(grille[l][c]=="?") {
+			grille[l][c]= p.getName();
+		}
+		else {
+			throw new ExceptionGrille("Zone occupée");
+		}
+		return " Le mur "+p.getName()+" est placé ";
 	}
 	
 	

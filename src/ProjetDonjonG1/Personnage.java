@@ -21,7 +21,7 @@ public class Personnage {
 		return vie;
 	}
 	public void setVie(int vie) throws ExceptionPersonnage {
-		if (vie >0 )
+		if (vie >=0 )
 			this.vie=vie;
 		else
 			throw new ExceptionPersonnage ("Le personnage n'a plus du vie");
@@ -40,11 +40,18 @@ public class Personnage {
 			
 	}
 	
-	public void mort() {
-		enVie=false;
+	public boolean mort() {
+		if ( vie <= 0) {
+			enVie=false;
+			return (!enVie);
+		}
+		else {
+			return (!enVie);
+		}
+			
 	}
 
-	private void utiliserPotion() throws ExceptionPersonnage, ExceptionInventaire {
+	public void utiliserPotion() throws ExceptionPersonnage, ExceptionInventaire {
 		if (!inventaire.isEmpty()) {
 			Objet objet = inventaire.pop();
 			int rajoutPv = objet.modificationPv();

@@ -9,7 +9,7 @@ public class TestGrille {
 		Grille g1=new Grille(6,6);
 		//g1.afficher();
 		// on place le joueur 
-		g1.placer(3, 4, "J");
+		g1.placerJoueur(3, 4, "J");
 		// affiche la grille 
 		g1.afficher();
 		
