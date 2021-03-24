@@ -15,7 +15,7 @@ public class testInventaire {
 		inventaire.addPotion(o2);
 		inventaire.addPotion(o3);
 
-		System.out.println(inventaire.size());;
+		System.out.println(inventaire.size());
 		
 		
 		

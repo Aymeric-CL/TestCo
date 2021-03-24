@@ -13,7 +13,7 @@ public class TestJeu {
 		Grille g1=new Grille(10,10);
 		
 		// Placement du personagane dans la grille 
-		g1.placer(3, 4, "J");
+		g1.placerJoueur(3, 4, "J");
 		
 		// afficher la grille 
 		g1.afficher();
