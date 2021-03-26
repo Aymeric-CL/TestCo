@@ -28,9 +28,8 @@ public class TestPersonnage {
 		 */
 		Personnage p3 = new Personnage("Charle", 2);
 		Potion potion1 = new Potion("potion1",4);
-		Inventaire potion = null;
 		System.out.println(p3);
-		potion.addPotion(potion1);
+		p3.ramasserPotion(potion1);
 		p3.utiliserPotion(potion1);
 		System.out.println(p3);
 		
