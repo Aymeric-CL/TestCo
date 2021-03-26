@@ -51,7 +51,7 @@ public class Personnage {
 			
 	}
 
-	public void utiliserPotion() throws ExceptionPersonnage, ExceptionInventaire {
+	public void utiliserPotion(Objet potion) throws ExceptionPersonnage, ExceptionInventaire {
 		if (!inventaire.isEmpty()) {
 			Objet objet = inventaire.pop();
 			int rajoutPv = objet.modificationPv();

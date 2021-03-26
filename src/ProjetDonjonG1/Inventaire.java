@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Inventaire extends Stack<Objet>{
 	
-	public static final Inventaire Potion = null;
+	private static final Inventaire Potion = null;
 	
 	
 	public void addPotion (Objet o) throws ExceptionInventaire {
