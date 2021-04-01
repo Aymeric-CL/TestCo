@@ -10,9 +10,9 @@ public class TestPersonnage {
 		
 		
 		
-		Personnage p = new Personnage("John",13);
+		Personnage p = new Personnage("John",13,12);
 		System.out.println(p.mort());
-		Personnage p2 = new Personnage("jc",0);
+		Personnage p2 = new Personnage("jc",12,14);
 		System.out.println(p2.mort());
 		
 		

@@ -9,13 +9,18 @@ public class Personnage {
 	private String name;
 	private Inventaire inventaire;
 	private boolean enVie = true;
+	private int coorX;
+	private int coorY;
 	
 
-	public Personnage(String name, int vie) throws ExceptionPersonnage, ExceptionInventaire  {
+	public Personnage(String name,int coorX, int coorY) throws ExceptionPersonnage, ExceptionInventaire  {
 		setName(name);
-		setVie(vie);
+		setVie(50);
+		setCoorX(coorX);
+		setCoorY(coorY);
 		
 	}
+	
 	
 	public int getVie() {
 		return vie;
@@ -40,13 +45,32 @@ public class Personnage {
 			
 	}
 	
-	public boolean mort() {
+	
+	
+	
+	public int getCoorX() {
+		return coorX;
+	}
+	public void setCoorX(int coorX) {
+		this.coorX = coorX;
+	}
+
+
+	public int getCoorY() {
+		return coorY;
+	}
+	public void setCoorY(int coorY) {
+		this.coorY = coorY;
+	}
+
+
+	public String mort() {
 		if ( vie <= 0) {
 			enVie=false;
-			return (!enVie);
+			return "Le personnage est mort";
 		}
 		else {
-			return (!enVie);
+			return "Le personnage est en vie";
 		}
 			
 	}
@@ -67,6 +91,23 @@ public class Personnage {
 		return "Point de vie de "+ name + " est " + vie;
 
 }
+	public void changementCoordonnée(int coorX, int coorY) {
+		this.coorX = coorX;
+		this.coorY = coorY;
+	}
 
-
+	
+	
+	public int retourneCoorX() {
+		return this.coorX;
+	}
+	public int retourneCoorY() {
+		return this.coorY;
+	}
+	
+	public int degatObjet(Objet o) {
+		int modif = o.modificationPv();
+		this.vie = this.vie +modif;
+		return this.vie ;
+	}
 }

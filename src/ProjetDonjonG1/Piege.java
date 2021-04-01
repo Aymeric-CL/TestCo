@@ -8,8 +8,9 @@ public class Piege extends Objet {
 
 	
 	
-	public Piege ( String name) throws  ExceptionPiege, ExceptionObjet{
-		super(name);
+	public Piege() throws  ExceptionPiege, ExceptionObjet{
+		super("piege");
+		setPvEnMoins(-5);
 	}
 	
 	
@@ -41,7 +42,7 @@ public class Piege extends Objet {
 			this.pvEnMoins = pvEnMoins; 
 		}
 		else {
-			throw new ExceptionPiege("pvEnMoins est inferieur ou égale à 0");
+			throw new ExceptionPiege("pvEnMoins est surement supérieur à 0");
 		}
 	}
 	

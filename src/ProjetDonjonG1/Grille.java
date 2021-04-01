@@ -211,6 +211,27 @@ public class Grille {
 		return " Le mur est placé ";
 	}
 	
+	public String apparaitrePersonnage(int l, int c) throws ExceptionGrille{
+		l=l-1;
+		c=c-1;
+		if(l<0 || c<0 || l>nbLig || c>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			
+		}
+		
+		// cette ligne sert a rien encore mais je test
+		// des choses je l'enleverrais si elle me 
+		//sert vraiment a rien
+		if(grille[l][c]=="???") {
+			grille[l][c]= "XXX";
+			
+		}
+		else {
+			throw new ExceptionGrille("Zone occupée");
+		}
+		return " Le personnage est placé ";
+	}
+	
 public String accederCaseGrille(int i, int j) {
 	return grille[i][j];
 }
@@ -224,60 +245,70 @@ public String accederCaseGrille(int i, int j) {
 	
 	
 	
-	public void deplacementH(Personnage p ) throws ExceptionGrille {
+	public void deplacementH(String p, Personnage t ) throws ExceptionGrille {
 		String tmp ;
 		for( int i=0 ; i<nbLig ; i++) {
 			for(int j=0 ; j<nbCol ; j++) {
-				if(grille[i][j]== p.getName() ) {
+				if(grille[i][j]== "XXX" ) {
 					if(i-1 >=0 ) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i-1][j]=tmp;
+						t.changementCoordonnée(i-1, j);
+						/*
+						 * trouver comment changer les coordonnée du
+						 * joueur 
+						 */
+						////t.getCoorX();
+						
 					}
 				}
 			}
 		}
 	}
 	
-	public void deplacementB(Personnage p ) throws ExceptionGrille {
+	public void deplacementB(String p, Personnage t ) throws ExceptionGrille {
 		String tmp ;
 		for( int i=0 ; i<nbLig ; i++) {
 			for(int j=0 ; j<nbCol ; j++) {
-				if(grille[i][j]== p.getName()) {
+				if(grille[i][j]== "XXX") {
 					if(i+1 <= nbLig ) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i+1][j]=tmp;
+						t.changementCoordonnée(i+1, j);
 						return;
 					}
 				}
 			}
 		}
 	}
-	public void deplacementD( Personnage p) throws ExceptionGrille {
+	public void deplacementD( String p, Personnage t) throws ExceptionGrille {
 		String tmp ;
 		for( int i=0 ; i<nbLig ; i++) {
 			for(int j=0 ; j<nbCol ; j++) {
-				if(grille[i][j]== p.getName()) {
+				if(grille[i][j]== "XXX") {
 					if(j+1 <=nbCol ) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i][j+1]=tmp;
+						t.changementCoordonnée(i, j+1);
 						return;
 					}
 				}
 			}
 		}
 	}
-	public void deplacementG(Personnage p ) throws ExceptionGrille {
+	public void deplacementG(String p, Personnage t ) throws ExceptionGrille {
 		String tmp;
 		for( int i=0 ; i<nbLig ; i++) {
 			for(int j=0 ; j<nbCol ; j++) {
-				if(grille[i][j]== p.getName()) {
+				if(grille[i][j]== "XXX") {
 					if(j-1 >=0 ) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
-						grille[i][j-1]=tmp; 
+						grille[i][j-1]=tmp;
+						t.changementCoordonnée(i, j-1);
 					}
 				}
 			}

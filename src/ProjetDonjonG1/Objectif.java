@@ -7,8 +7,8 @@ public class Objectif extends Objet{
 	
 	
 	
-	public Objectif ( String name) throws ExceptionObjet, ExceptionObjetif {
-		super(name);
+	public Objectif () throws ExceptionObjet, ExceptionObjetif {
+		super("Objectif");
 	}
 	
 	
@@ -45,5 +45,13 @@ public class Objectif extends Objet{
 	public int modificationPv() {
 		return 0;
 	}
+	
+	public boolean objAtteint() {
+		boolean t = true;
+		return t;
+	}
+	
+	
+	
 }
 

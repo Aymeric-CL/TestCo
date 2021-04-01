@@ -6,7 +6,7 @@ public class TestObjet {
 	
 	
 	
-	public static void main(String[] args) throws ExceptionObjet, ExceptionMur, ExceptionPotion {
+	public static void main(String[] args) throws ExceptionObjet, ExceptionMur, ExceptionPotion, ExceptionPiege {
 		
 		
 		
@@ -44,6 +44,14 @@ public class TestObjet {
 		 * test de la methode modificationPv()
 		 */
 		System.out.println(potion1.modificationPv());
+		
+				// TEST DE LA CLASS PIEGE
+		
+		Piege piege1 = new Piege("Piege",-4);
+		System.out.println(piege1);
+		
+		System.out.println(piege1.modificationPv());
+		
 		
 		
 		

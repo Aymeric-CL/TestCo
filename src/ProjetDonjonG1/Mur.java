@@ -13,9 +13,9 @@ public class Mur extends Objet {
 	 * le nom du mur ex : mur1, mur2 ect.. et les dégats
 	 * que ce mur va enlever.
 	 */
-	public Mur(String name,int degats ) throws ExceptionObjet, ExceptionMur {
-		super(name);
-		setDegats(degats);
+	public Mur() throws ExceptionObjet, ExceptionMur {
+		super("Mur");
+		setDegats(-3);
 		// TODO Auto-generated constructor stub
 	}
 
