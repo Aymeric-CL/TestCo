@@ -4,6 +4,8 @@ public class TestGrille {
 	
 
 	public static void main(String[] args) throws ExceptionPersonnage, ExceptionGrille, ExceptionObjet, ExceptionPotion, ExceptionInventaire, ExceptionPiege, ExceptionObjetif {
+		/*
+		
 		// TODO Auto-generated method stub
 		//crée la grille
 		Grille g1=new Grille("g1");
@@ -36,7 +38,7 @@ public class TestGrille {
 		
 		
 	////   TEST SI LE JOEUR EST SUR UN OBJET OU PAS
-		
+		*/
 		
 		/*
 		 * cette partie de programme parcours la première grille elle cherche
@@ -44,6 +46,9 @@ public class TestGrille {
 		 * si dans la deuxième grille il se trouve un objet si il se trouve un objet alors 
 		 * elle affiche la potion sur la grille du joueur 
 		 */
+		/*
+		
+		
 		System.out.println( " Test des deux grille ");
 		if (g2.getNbLig() == g1.getNbLig() && g2.getNbCol() == g1.getNbCol()) {
 		for(int i =0; i< g2.getNbLig();i++) {
@@ -85,7 +90,35 @@ public class TestGrille {
 	
 	
 	/////// Test des methodes placerObjet //////////
-	
+*/
+		
+	/////////////////////////////////////Test deuxieme partie////////////////////////////////////////////////////////
+		Grille g1 = new Grille("g1");
+		Personnage p = new Personnage("p1",3,3);
+		
+		
+		
+		int x = p.getCoorX();
+		int y = p.getCoorY();
+		
+		g1.apparaitrePersonnage(x, y);
+		g1.apparaitrePiege(6, 6);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

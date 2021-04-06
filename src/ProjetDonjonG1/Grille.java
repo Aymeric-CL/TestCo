@@ -104,32 +104,6 @@ public class Grille {
 	
 	
 	
-	
-	
-	
-	
-	
-	public void placerJoueur(int l, int c,Personnage e) throws ExceptionGrille {
-		l=l-1;
-		c=c-1;
-		if(l<0 || c<0 || l>nbLig || c>nbCol) {
-			throw new ExceptionGrille("Hors donjon");
-			
-		}
-		if(grille[l][c]=="???") {
-			grille[l][c]= e.getName();
-		}
-		else {
-			throw new ExceptionGrille("Zone occupée");
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
 	public String apparaitrePotion(int l, int c ) throws ExceptionGrille{
 		l=l-1;
 		c=c-1;
@@ -137,10 +111,6 @@ public class Grille {
 			throw new ExceptionGrille("Hors donjon");
 			
 		}
-		
-		// cette ligne sert a rien encore mais je test
-		// des choses je l'enleverrais si elle me 
-		//sert vraiment a rien
 		if(grille[l][c]=="???") {
 			grille[l][c]= "ppp"; 
 		}
@@ -157,10 +127,6 @@ public class Grille {
 			throw new ExceptionGrille("Hors donjon");
 			
 		}
-		
-		// cette ligne sert a rien encore mais je test
-		// des choses je l'enleverrais si elle me 
-		//sert vraiment a rien
 		if(grille[l][c]=="???") {
 			grille[l][c]= "~~~"; 
 		}
@@ -177,10 +143,6 @@ public class Grille {
 			throw new ExceptionGrille("Hors donjon");
 			
 		}
-		
-		// cette ligne sert a rien encore mais je test
-		// des choses je l'enleverrais si elle me 
-		//sert vraiment a rien
 		if(grille[l][c]=="???") {
 			grille[l][c]= "vvv"; 
 		}
@@ -197,10 +159,6 @@ public class Grille {
 			throw new ExceptionGrille("Hors donjon");
 			
 		}
-		
-		// cette ligne sert a rien encore mais je test
-		// des choses je l'enleverrais si elle me 
-		//sert vraiment a rien
 		if(grille[l][c]=="???") {
 			grille[l][c]= "###";
 			
@@ -219,10 +177,7 @@ public class Grille {
 			
 		}
 		
-		// cette ligne sert a rien encore mais je test
-		// des choses je l'enleverrais si elle me 
-		//sert vraiment a rien
-		if(grille[l][c]=="???") {
+		if(grille[l][c] == "???")  {
 			grille[l][c]= "XXX";
 			
 		}
@@ -232,13 +187,19 @@ public class Grille {
 		return " Le personnage est placé ";
 	}
 	
-public String accederCaseGrille(int i, int j) {
-	return grille[i][j];
-}
+	public String accederCaseGrille(int i, int j) throws ExceptionGrille{
+		i=i-1;
+		j=j-1;
+		if(i<0 || j<0 || i>nbLig || j>nbCol) {
+			throw new ExceptionGrille("Hors donjon");
+			}
+		else {
+			return grille[i][j];
+		}
+		}
 	
 	
-	
-	
+
 	
 	
 	
@@ -254,12 +215,14 @@ public String accederCaseGrille(int i, int j) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i-1][j]=tmp;
-						t.changementCoordonnée(i-1, j);
 						/*
-						 * trouver comment changer les coordonnée du
-						 * joueur 
-						 */
-						////t.getCoorX();
+						if(grille[i-1][j].equals("###"))
+							grille[i-1][j]=tmp;
+						else
+							grille[i-1][j]=tmp;
+						t.changementCoordonnée(i-1, j);
+						*/
+						return;
 						
 					}
 				}
@@ -276,7 +239,13 @@ public String accederCaseGrille(int i, int j) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i+1][j]=tmp;
+						/*
+						if(grille[i+1][j].equals("###"))
+							grille[i+1][j]=tmp;
+						else
+							grille[i+1][j]=tmp;
 						t.changementCoordonnée(i+1, j);
+						*/
 						return;
 					}
 				}
@@ -292,7 +261,13 @@ public String accederCaseGrille(int i, int j) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i][j+1]=tmp;
+						/*
+						if(grille[i][j+1].equals("###"))
+							grille[i][j+1]=tmp;
+						else
+							grille[i][j+1]=tmp;
 						t.changementCoordonnée(i, j+1);
+						*/
 						return;
 					}
 				}
@@ -308,7 +283,15 @@ public String accederCaseGrille(int i, int j) {
 						tmp = grille[i][j];
 						grille[i][j]="...";
 						grille[i][j-1]=tmp;
+						
+						/*
+						if(grille[i][j-1].equals("###"))
+							grille[i][j-1]=tmp;
+						else
+							grille[i][j-1]=tmp;
 						t.changementCoordonnée(i, j-1);
+						*/
+						return;
 					}
 				}
 			}
@@ -316,14 +299,6 @@ public String accederCaseGrille(int i, int j) {
 	}
 	
 	
-	/*
-	 * cette methode aurait pour but de renvoyer le
-	 * numero de case d'un objet ou d'un joueur pour
-	 * savoir si ils sont sur la meme case ou pas.
-	 */
-	public int numeroCase(){
-		return 1;
-	}
 
 
 

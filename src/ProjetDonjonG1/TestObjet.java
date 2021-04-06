@@ -17,7 +17,7 @@ public class TestObjet {
 		 * test si on peut instancier le mur et si la methode toString
 		 * marche 
 		 */
-		Mur mur1 = new Mur("mur1",-1);
+		Mur mur1 = new Mur();
 		System.out.println(mur1);
 		//Mur mur2 = new Mur("mur2",3); 
 		
@@ -35,7 +35,7 @@ public class TestObjet {
 		 * la classe toString
 		 */
 		
-		Potion potion1 = new Potion("potion1",4);
+		Potion potion1 = new Potion();
 		System.out.println(potion1);
 		
 		//Potion potion2 = new Potion("potion2",-2);
@@ -47,7 +47,7 @@ public class TestObjet {
 		
 				// TEST DE LA CLASS PIEGE
 		
-		Piege piege1 = new Piege("Piege",-4);
+		Piege piege1 = new Piege();
 		System.out.println(piege1);
 		
 		System.out.println(piege1.modificationPv());
