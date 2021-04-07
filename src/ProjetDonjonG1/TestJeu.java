@@ -184,7 +184,7 @@ public class TestJeu {
 	Potion potion = new Potion();
 	Mur mur = new Mur();
 	Objectif objectif = new Objectif();
-	Inventaire inventaire1 = new Inventaire();
+	//Inventaire inventaire1 = new Inventaire();
 	boolean objAtteint = true; 
 	
 	

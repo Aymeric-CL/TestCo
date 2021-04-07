@@ -2,12 +2,13 @@ package ProjetDonjonG1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 
-public class Personnage {
+public class Personnage{
 	private int vie;
 	private String name;
-	private Inventaire inventaire;
+	private ArrayList<Objet> inventaire = new ArrayList<Objet>();
 	private boolean enVie = true;
 	private int coorX;
 	private int coorY;
@@ -44,6 +45,13 @@ public class Personnage {
 			throw new ExceptionPersonnage(" le nom du personnage n'est pas bon");
 			
 	}
+	  public ArrayList<Objet> getInventaire() {
+	        return inventaire;
+	    }
+
+	    public void setInventaire(ArrayList<Objet> inventaire) {
+	        this.inventaire = inventaire;
+	    }
 	
 	
 	
@@ -74,12 +82,27 @@ public class Personnage {
 		}
 			
 	}
+	public void ramasserPotion (Potion p) throws ExceptionInventaire, ExceptionPersonnage {
+		if (p!= null)
+			inventaire.add(p);
+		else 
+			throw new ExceptionInventaire("Erreur dans l'inventaire");
+	}
 
-	public void utiliserPotion() throws ExceptionPersonnage, ExceptionInventaire {
+
+
+	public void utiliserPotion(Objet potion) throws ExceptionPersonnage, ExceptionInventaire {
 		if (!inventaire.isEmpty()) {
-			Objet objet = inventaire.pop();
-			int rajoutPv = objet.modificationPv();
-			this.vie+= rajoutPv;
+			for (int i =0; i<=inventaire.size();i++)
+				if (potion!=null) {
+						Objet objet = inventaire.remove(i);
+						int rajoutPv = objet.modificationPv();
+						this.vie+= rajoutPv;
+				}
+				else 
+					throw new ExceptionInventaire("Erreur dans l'inventaire");
+
+			
 		}
 		
 			
