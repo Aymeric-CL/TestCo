@@ -219,7 +219,7 @@ public class TestJeu {
 		System.out.println(move3);
 		System.out.println(move4);
 		
-	////////////TEST DES MOUVEMENTS RENTRÉS PAR LE JOEUR/////////////////////////////// ( opérationnel)
+	////////////TEST DES MOUVEMENTS RENTRÉS PAR LE JOEUR /////////////////////////////// ( opérationnel)
 		
 		int boucle = 0;
 		while(boucle < 4) {
