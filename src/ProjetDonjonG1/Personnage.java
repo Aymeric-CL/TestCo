@@ -98,6 +98,7 @@ public class Personnage{
 						Objet objet = inventaire.remove(i);
 						int rajoutPv = objet.modificationPv();
 						this.vie+= rajoutPv;
+						System.out.println("Vous avez utilier la potion");
 				}
 				else 
 					throw new ExceptionInventaire("Erreur dans l'inventaire");
@@ -133,4 +134,6 @@ public class Personnage{
 		this.vie = this.vie +modif;
 		return this.vie ;
 	}
+	
 }
+

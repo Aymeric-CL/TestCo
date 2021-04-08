@@ -10,7 +10,7 @@ public class Piege extends Objet {
 	
 	public Piege() throws  ExceptionPiege, ExceptionObjet{
 		super("piege");
-		setPvEnMoins(-5);
+		
 	}
 	
 	
@@ -99,9 +99,6 @@ public class Piege extends Objet {
 		int pvEnMoins = this.pvEnMoins;
 		return pvEnMoins;
 	}
-	
-	
-	
 	
 	
 	public String toString() {

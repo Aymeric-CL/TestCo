@@ -27,15 +27,13 @@ public class Objectif extends Objet{
 	
 	
 
-	public boolean obectifAAtteindre (String [][] caseP , String[][] box ) {
-		boolean bol = false;
+	public boolean obectifAAtteindre(String  caseP , String box ) {
+		boolean bol = true;
 			if(caseP.equals(box) ) {
 				System.out.println("L'objectif est atteint ");
-				bol = true ;
+				bol = false ;
 				
-			}
-			else {
-				System.out.println("L'objectif n'est pas atteint veuilliez rejoué");
+		
 			}
 			return bol;
 	}
@@ -50,6 +48,9 @@ public class Objectif extends Objet{
 		boolean t = true;
 		return t;
 	}
+
+
+
 	
 	
 	

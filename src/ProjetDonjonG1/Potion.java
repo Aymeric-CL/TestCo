@@ -58,7 +58,7 @@ public class Potion extends Objet{
 	 * va rajouter de pv la potion.
 	 */
 	public String toString() {
-		return super.toString()+" la potion rajoute "+getPotion()+" point de vie";
+		return super.toString()+" la potion rajoute "+getPotion()+" point de vie si vous la ramassez et l'utilisez";
 	}
 
 

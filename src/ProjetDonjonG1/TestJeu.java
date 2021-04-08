@@ -139,6 +139,7 @@ public class TestJeu {
 							g2.accederCaseGrille(Xaléatoire, Yaléatoire+1).equals("???") | 
 							g2.accederCaseGrille(Xaléatoire+1, Yaléatoire).equals("???") ) {
 							g1.apparaitrePersonnage(Xaléatoire, Yaléatoire);
+							g2.apparaitrePersonnage(Xaléatoire, Yaléatoire);
 							 coordonnéePersonnageXDépart = Xaléatoire;
 							 coordonnéePersonnageYDépart = Yaléatoire;
 						i = false;
@@ -156,17 +157,7 @@ public class TestJeu {
 	
 	Personnage p1 = new Personnage(prenom,coordonnéePersonnageXDépart,coordonnéePersonnageYDépart);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -184,11 +175,10 @@ public class TestJeu {
 	Potion potion = new Potion();
 	Mur mur = new Mur();
 	Objectif objectif = new Objectif();
-	//Inventaire inventaire1 = new Inventaire();
-	boolean objAtteint = true; 
+	//Inventaire inventaire1 = new Inventaire(); 
 	
 	
-	while(p1.getVie()> 0 && objAtteint ) {
+	while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ){
 		System.out.println("        Veuilliez saisir vos 4 prochain mouvement  : ");
 		System.out.println(" ");
 		System.out.println("     - H pour aller en HAUT ");
@@ -247,7 +237,7 @@ public class TestJeu {
 				move3 = sc.next();
 				boucle = 0;
 			}
-			if(move4.equals("H") || move4.equals("B") || move4.equals("D") || move4.equals("G") || move4.equals("4") || move4.equals("U") ) {
+			if(move4.equals("H") || move4.equals("B") || move4.equals("D") || move4.equals("G") || move4.equals("R") || move4.equals("U") ) {
 				boucle+=1;
 			}
 			else {
@@ -266,65 +256,181 @@ public class TestJeu {
 		int cX0 = p1.retourneCoorX();
 		int cY0 = p1.retourneCoorY();
 		
+		
+		
 	///////////////////////////Mouvement 1/////////////////////////////////////
 		
-		if( move1.equals("H")){
-			g1.deplacementH("XXX",p1);
-			System.out.println(" ");
-			System.out.println(" ");
-		}
+		int l1 = g1.cherchePersoLigne();
+		int c1 = g1.cherchePersoColonne();
 		
+		System.out.println(p1.toString());
+		if( move1.equals("H")){
+			g2.testCase(l1, c1, g1, p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+			g1.deplacementH("XXX",p1);
+			
+		}
 		if(move1.equals("B")){
 			g1.deplacementB("XXX",p1);
+			g2.testCase(l1, c1,g1,p1);
 			System.out.println(" ");
 			System.out.println(" ");
+			g1.afficher();
+			
+				
 		}
-		
 		if(move1.equals("D")) {				
 			g1.deplacementD("XXX",p1);
+			g2.testCase(l1, c1,g1,p1);	
 			System.out.println(" ");
 			System.out.println(" ");
+			g1.afficher();
+			
+			
 		}
-		
 		if(move1.equals("G")){
 			g1.deplacementG("XXX",p1);
+			g2.testCase(l1, c1,g1,p1);	
 			System.out.println(" ");
 			System.out.println(" ");
+			g1.afficher();		
 		}
-	
+		if(move1.equals("R")){
+			g2.testCaseRamasserPotion(l1, c1, p1);
+		}
+		if(move1.equals("U")) {
+			g2.testUtiliseP(p1);;
+			
+		}
 		
 		
+//////////////////////////Mouvement 2//////////////////////////////////////////////
 		
+		int l2 = g1.cherchePersoLigne();
+		int c2 = g1.cherchePersoColonne();
+
+		if(move2.equals("H")) {
+			g1.deplacementH("XXX",p1);	
+			g2.testCase(l2, c2,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+		if(move2.equals("B")) {
+			g1.deplacementB("XXX",p1);
+			g2.testCase(l2, c2,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+
+		if( move2.equals("D")) {
+			g1.deplacementD("XXX",p1);
+			g2.testCase(l2, c2,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
 		
+		if(move2.equals("G")){
+			g1.deplacementG("XXX",p1);
+			g2.testCase(l2, c2,g1,p1);	
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+		if(move2.equals("R")){
+			g2.testCaseRamasserPotion(l2, c2, p1);		
+			}
+		if(move2.equals("U")) {
+			g2.testUtiliseP(p1);
+		}
+//////////////////////////Mouvement 3//////////////////////////////////////////////
+
+		int l3 = g1.cherchePersoLigne();
+		int c3 = g1.cherchePersoColonne();
 		
+		if(move3.equals("H")) {
+			g1.deplacementH("XXX",p1);
+			g2.testCase(l3, c3,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+		if(move3.equals("B")) {
+			g1.deplacementB("XXX",p1);
+			g2.testCase(l3, c3,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+
+		if( move3.equals("D")) {
+			g1.deplacementD("XXX",p1);
+			g2.testCase(l3, c3,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+
+		if(move3.equals("G")){
+			g1.deplacementG("XXX",p1);
+			g2.testCase(l3, c3,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+		if(move3.equals("R")){
+			g2.testCaseRamasserPotion(l3, c3, p1);		
+			}
+		if(move3.equals("U")) {
+			g2.testUtiliseP(p1);
+		}
+//////////////////////////Mouvement 4//////////////////////////////////////////////
+
+		int l4 = g1.cherchePersoLigne();
+		int c4 = g1.cherchePersoColonne();
+		if(move4.equals("H")) {
+			
+			g1.deplacementH("XXX",p1);
+			g2.testCase(l4, c4,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		if(move4.equals("B")) {
+			g1.deplacementB("XXX",p1);
+			g2.testCase(l4, c4,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+
+		if( move4.equals("D")) {
+			g1.deplacementD("XXX",p1);
+			g2.testCase(l4, c4,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+
+		if(move4.equals("G")){
+			g1.deplacementG("XXX",p1);
+			g2.testCase(l4, c4,g1,p1);
+			System.out.println(" ");
+			System.out.println(" ");
+			g1.afficher();
+		}
+		if(move4.equals("R")){
+			g2.testCaseRamasserPotion(l4, c4, p1);	
+		}
+		if(move4.equals("U")) {
+			g2.testUtiliseP(p1);
+		}
+		System.out.println(p1.toString());
 		/*
 		
 		
@@ -650,8 +756,10 @@ System.out.println(" Test de mes class ");
 		
 		System.out.println("Les coordonnées de X sont "+p1.getCoorX()+" les coordonnées de Y sont "+p1.getCoorY());
 		*/
-	
-		}}}
+	}
+	}
+}
+
 
 	
 
