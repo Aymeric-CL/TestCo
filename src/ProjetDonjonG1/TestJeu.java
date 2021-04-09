@@ -11,22 +11,22 @@ public class TestJeu {
 	//////////////INITIALISATION DE CERTAINE CHOSE AVANT PARTIE//////////////////////
 		
 		Scanner sc = new Scanner(System.in); //initialisation d'un scanner
-		System.out.println(" veuillez rentrer votre prénom pour commencer la partie");
+		System.out.println(" veuillez rentrer votre prenom pour commencer la partie");
 		String prenom = sc.next(); // scaner pour le prenom du joeur
 		
 		Grille g1 = new Grille("g1");// grille que va voir le joueur
 		Grille g2 = new Grille("g2");// grille ou on va placer tout les objets sans que le joueur voit cette grille
-		Grille g3 = new Grille("g3");// grille qui va nous aider a savoir si le joueur est deja passé sur cette case ou non
+		Grille g3 = new Grille("g3");// grille qui va nous aider a savoir si le joueur est deja passe sur cette case ou non
 		
 		
 		
 		/*
 		 *placement des murs sur le graphe g2 car si on fait des 
-		 *murs aléatoire on peut rester bloquer donc on a decider
-		 *de ne pas faire de mur aléatoire
+		 *murs aleatoire on peut rester bloquer donc on a decider
+		 *de ne pas faire de mur aleatoire
 		 */
 		g2.apparaitreMur(1, 1);// placement du premier mur sur la grille g2
-		g2.apparaitreMur(2, 6);// placement du deuxième mur sur la grille g2
+		g2.apparaitreMur(2, 6);// placement du deuxieme mur sur la grille g2
 		g2.apparaitreMur(2, 7);// ...
 		g2.apparaitreMur(2, 8);
 		g2.apparaitreMur(3, 4);
@@ -36,38 +36,38 @@ public class TestJeu {
 		g2.apparaitreMur(8, 2);
 		g2.apparaitreMur(8, 3);
 		g2.apparaitreMur(8, 10);
-		g2.apparaitreMur(9, 7);// placement du douxième mur sur la grille g2
+		g2.apparaitreMur(9, 7);// placement du deuxieme mur sur la grille g2
 		
 		
 		
 		/*
-		 * création des potions aléatoire 
+		 * creation des potions aleatoire 
 		 */
 	
 			
 		int i1 = 0;
 		while(i1<5 ) {
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
 			
-			if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-				g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+			if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+				g2.apparaitrePotion(Xaleatoire, Yaleatoire);
 				i1+=1;
 			}
 		}
 		
 		
 		/*
-		 * création des pièges aléatoire 
+		 * creation des pieges aleatoire 
 		 */
 		
 		int i2 = 0;
 		while(i2<5 ) {
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
 			
-		if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-			g2.apparaitrePiege(Xaléatoire, Yaléatoire);
+		if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+			g2.apparaitrePiege(Xaleatoire, Yaleatoire);
 		i2+=1;
 		}}
 			
@@ -76,8 +76,8 @@ public class TestJeu {
 		
 		
 		/*
-		 * création de objectif, on va tester si il y a au moins une case 
-		 * de libre autour de l'objectif que le joeur puisse y acceder c'est pour ça
+		 * creation de objectif, on va tester si il y a au moins une case 
+		 * de libre autour de l'objectif que le joueur puisse y acceder c'est pour ca
 		 * qu'il y a autant de condition dans le if on a tester 4 cases.
 		 */
 	try {	
@@ -85,15 +85,15 @@ public class TestJeu {
 	while(t) {
 			Boolean i3 = true;
 		while(i3) {
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			if(g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire-1).equals("???")  ||
-						g2.accederCaseGrille(Xaléatoire-1, Yaléatoire).equals("???")||
-						g2.accederCaseGrille(Xaléatoire, Yaléatoire+1).equals("???")|| 
-						g2.accederCaseGrille(Xaléatoire+1, Yaléatoire).equals("???")) {
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  ||
+						g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???")||
+						g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???")|| 
+						g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???")) {
 				
-					g2.apparaitreObjectif(Xaléatoire, Yaléatoire);
+					g2.apparaitreObjectif(Xaleatoire, Yaleatoire);
 					i3 = false;
 					t= false;
 					
@@ -109,15 +109,15 @@ public class TestJeu {
 		//e.printStackTrace();
 	}
 /*
- * création et placement du personnage 
+ * creation et placement du personnage 
  * 	
  */
 	
 /////////////////// Placement du personnage/////////////////////
 	
 	
-	int coordonnéePersonnageXDépart = 0;
-	int coordonnéePersonnageYDépart = 0;
+	int coordonneePersonnageXDepart = 0;
+	int coordonneePersonnageYDepart = 0;
 	boolean t2 = true; // initialisation de la variable T2 a true
 	
 	while(t2) { //vas tourner temps qu'on a pas trouver une place au personnage
@@ -128,17 +128,17 @@ public class TestJeu {
 		
 			Boolean i = true;
 			while(i) {
-				int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				if(g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-					if (g2.accederCaseGrille(Xaléatoire, Yaléatoire-1).equals("???")  |
-							g2.accederCaseGrille(Xaléatoire-1, Yaléatoire).equals("???") |
-							g2.accederCaseGrille(Xaléatoire, Yaléatoire+1).equals("???") | 
-							g2.accederCaseGrille(Xaléatoire+1, Yaléatoire).equals("???") ) {
-							g1.apparaitrePersonnage(Xaléatoire, Yaléatoire);
-							g2.apparaitrePersonnage(Xaléatoire, Yaléatoire);
-							 coordonnéePersonnageXDépart = Xaléatoire;
-							 coordonnéePersonnageYDépart = Yaléatoire;
+				int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+					if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  |
+							g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???") |
+							g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???") | 
+							g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???") ) {
+							g1.apparaitrePersonnage(Xaleatoire, Yaleatoire);
+							g2.apparaitrePersonnage(Xaleatoire, Yaleatoire);
+							 coordonneePersonnageXDepart = Xaleatoire;
+							 coordonneePersonnageYDepart = Yaleatoire;
 						i = false;
 						t2= false;
 						}
@@ -150,9 +150,9 @@ public class TestJeu {
 		//e.printStackTrace();
 		
 	}}
-	//création du personnage
+	//creation du personnage
 	
-	Personnage p1 = new Personnage(prenom,coordonnéePersonnageXDépart,coordonnéePersonnageYDépart);
+	Personnage p1 = new Personnage(prenom,coordonneePersonnageXDepart,coordonneePersonnageYDepart);
 	
 
 	
@@ -162,7 +162,7 @@ public class TestJeu {
 	
 	
 	 
-	System.out.println(" Salut ! la partie va bientot commencer "+prenom+" prépare toi !");
+	System.out.println(" Salut ! la partie va bientot commencer "+prenom+" prepare toi !");
 	g1.afficher();
 	g2.afficher();/////a enlever 
 	
@@ -206,7 +206,7 @@ public class TestJeu {
 		System.out.println(move3);
 		System.out.println(move4);
 		
-	////////////TEST DES MOUVEMENTS RENTRÉS PAR LE JOEUR /////////////////////////////// ( opérationnel)
+	////////////TEST DES MOUVEMENTS RENTRES PAR LE JOEUR /////////////////////////////// ( operationnel)
 		
 		int boucle = 0;
 		while(boucle < 4) {
@@ -222,7 +222,7 @@ public class TestJeu {
 				boucle+=1;
 				}
 			else {
-				System.out.println(" Vous n'avez pas bien saisie le deuxième mouvement veuillez le ressaisir : ");
+				System.out.println(" Vous n'avez pas bien saisie le deuxieme mouvement veuillez le ressaisir : ");
 				move2 = sc.next();
 				boucle = 0;
 			}
@@ -230,7 +230,7 @@ public class TestJeu {
 				boucle+=1;
 				}
 			else {
-				System.out.println(" Vous n'avez pas bien saisie le troisième mouvement veuillez le ressaisir : ");
+				System.out.println(" Vous n'avez pas bien saisie le troisieme mouvement veuillez le ressaisir : ");
 				move3 = sc.next();
 				boucle = 0;
 			}
@@ -238,7 +238,7 @@ public class TestJeu {
 				boucle+=1;
 			}
 			else {
-				System.out.println(" Vous n'avez pas bien saisie le quatrième mouvement veuillez le ressaisir : ");
+				System.out.println(" Vous n'avez pas bien saisie le quatrieme mouvement veuillez le ressaisir : ");
 				move4 = sc.next();
 				boucle = 0;
 			}				
@@ -305,10 +305,10 @@ public class TestJeu {
 		if(move1.equals("R")){
 			g2.testCaseRamasserPotion(l1, c1, p1);
 			g2.modifieCase(l1, c1, "R");
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+						g2.apparaitrePotion(Xaleatoire, Yaleatoire);
 				}
 		}
 		if(move1.equals("U")) {
@@ -356,10 +356,10 @@ public class TestJeu {
 		if(move2.equals("R")){
 			g2.testCaseRamasserPotion(l2, c2, p1);	
 			g2.modifieCase(l2, c2, "R");
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+						g2.apparaitrePotion(Xaleatoire, Yaleatoire);
 			}
 		}
 		if(move2.equals("U")) {
@@ -405,10 +405,10 @@ public class TestJeu {
 		if(move3.equals("R")){
 			g2.testCaseRamasserPotion(l3, c3, p1);	
 			g2.modifieCase(l3, c3, "R");
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+						g2.apparaitrePotion(Xaleatoire, Yaleatoire);
 				}
 			}
 		
@@ -454,10 +454,10 @@ public class TestJeu {
 		if(move4.equals("R")){
 			g2.testCaseRamasserPotion(l4, c4, p1);	
 			g2.modifieCase(l4, c4, "R");
-			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
-				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
-						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+						g2.apparaitrePotion(Xaleatoire, Yaleatoire);
 				}
 		}
 		if(move4.equals("U")) {
@@ -527,7 +527,7 @@ System.out.println(" Test de mes class ");
 		}
 		if(g2.accederCaseGrille(cX1, cY1).equals("vvv")) {
 			objAtteint = false;
-			System.out.println("BRAVOOOO ! vous avez trouvé l'objectif ");
+			System.out.println("BRAVOOOO ! vous avez trouve l'objectif ");
 			
 		}}
 		
@@ -613,7 +613,7 @@ System.out.println(" Test de mes class ");
 		}
 		if(g2.accederCaseGrille(cX2, cY2).equals("vvv")) {
 			objAtteint = false;
-			System.out.println("BRAVOOOO ! vous avez trouvé l'objectif ");
+			System.out.println("BRAVOOOO ! vous avez trouve l'objectif ");
 			
 		}
 		
@@ -698,7 +698,7 @@ System.out.println(" Test de mes class ");
 		}
 		if(g2.accederCaseGrille(cX3, cY3).equals("vvv")) {
 			objAtteint = false;
-			System.out.println("BRAVOOOO ! vous avez trouvé l'objectif ");
+			System.out.println("BRAVOOOO ! vous avez trouve l'objectif ");
 			
 		}
 		
@@ -779,7 +779,7 @@ System.out.println(" Test de mes class ");
 		}
 		if(g2.accederCaseGrille(cX4, cY4).equals("vvv")) {
 			objAtteint = false;
-			System.out.println("BRAVOOOO ! vous avez trouvé l'objectif ");
+			System.out.println("BRAVOOOO ! vous avez trouve l'objectif ");
 			
 		}
 	
@@ -795,15 +795,15 @@ System.out.println(" Test de mes class ");
 		
 		
 		
-		System.out.println("Les coordonnées de X sont "+p1.getCoorX()+" les coordonnées de Y sont "+p1.getCoorY());
+		System.out.println("Les coordonnees de X sont "+p1.getCoorX()+" les coordonnees de Y sont "+p1.getCoorY());
 		*/
 
 
 		/*
-		//création d'un personnage :
+		//creation d'un personnage :
 		Personnage p01 = new Personnage("p01" , 50);
 		
-		// création d'une grille
+		// creation d'une grille
 		Grille g1=new Grille(10,10,"g1");
 		
 		
@@ -814,7 +814,7 @@ System.out.println(" Test de mes class ");
 		// afficher la grille 
 		g1.afficher();
 		
-		// création d'une potion
+		// creation d'une potion
 		Potion potion1 = new Potion("potion1",4);
 		
 		
@@ -825,8 +825,8 @@ System.out.println(" Test de mes class ");
 		System.out.println(" ");
 		System.out.println("     - H pour aller en HAUT ");
 		System.out.println("     - B pour aller en BAS ");
-		System.out.println("     - D pour aller à DROITE ");
-		System.out.println("     - G pour aller à GAUCHE ");
+		System.out.println("     - D pour aller a� DROITE ");
+		System.out.println("     - G pour aller a� GAUCHE ");
 		System.out.println("     - R pour ramasser un objet ");
 		System.out.println("     - U pour utiliser un objet ");
 		System.out.println(" ");

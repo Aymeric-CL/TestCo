@@ -115,7 +115,7 @@ public class Personnage{
 		return "Point de vie de "+ name + " est " + vie;
 
 }
-	public void changementCoordonnée(int coorX, int coorY) {
+	public void changementCoordonnee(int coorX, int coorY) {
 		this.coorX = coorX;
 		this.coorY = coorY;
 	}
