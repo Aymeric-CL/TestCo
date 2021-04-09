@@ -43,10 +43,7 @@ public class TestJeu {
 		/*
 		 * création des potions aléatoire 
 		 */
-		
-		
-		
-		
+	
 			
 		int i1 = 0;
 		while(i1<5 ) {
@@ -263,13 +260,21 @@ public class TestJeu {
 		int l1 = g1.cherchePersoLigne();
 		int c1 = g1.cherchePersoColonne();
 		
+		
 		System.out.println(p1.toString());
+		System.out.println(g2.testDeplacement(l1, c1, p1, move1)); 
+		
 		if( move1.equals("H")){
-			g2.testCase(l1, c1, g1, p1);
+			g2.testCase(l1, c1, g1, p1 );
+			g1.deplacementH("XXX",p1);
+			g2.testCase(l1, c1, g1, p1 );
 			System.out.println(" ");
 			System.out.println(" ");
 			g1.afficher();
-			g1.deplacementH("XXX",p1);
+				
+			
+			
+			
 			
 		}
 		if(move1.equals("B")){
@@ -299,9 +304,16 @@ public class TestJeu {
 		}
 		if(move1.equals("R")){
 			g2.testCaseRamasserPotion(l1, c1, p1);
+			g2.modifieCase(l1, c1, "R");
+			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
+						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+				}
 		}
 		if(move1.equals("U")) {
 			g2.testUtiliseP(p1);;
+			
 			
 		}
 		
@@ -342,11 +354,19 @@ public class TestJeu {
 			g1.afficher();
 		}
 		if(move2.equals("R")){
-			g2.testCaseRamasserPotion(l2, c2, p1);		
+			g2.testCaseRamasserPotion(l2, c2, p1);	
+			g2.modifieCase(l2, c2, "R");
+			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
+						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
 			}
+		}
 		if(move2.equals("U")) {
 			g2.testUtiliseP(p1);
 		}
+		
+		
 //////////////////////////Mouvement 3//////////////////////////////////////////////
 
 		int l3 = g1.cherchePersoLigne();
@@ -383,8 +403,15 @@ public class TestJeu {
 			g1.afficher();
 		}
 		if(move3.equals("R")){
-			g2.testCaseRamasserPotion(l3, c3, p1);		
+			g2.testCaseRamasserPotion(l3, c3, p1);	
+			g2.modifieCase(l3, c3, "R");
+			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
+						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+				}
 			}
+		
 		if(move3.equals("U")) {
 			g2.testUtiliseP(p1);
 		}
@@ -426,11 +453,25 @@ public class TestJeu {
 		}
 		if(move4.equals("R")){
 			g2.testCaseRamasserPotion(l4, c4, p1);	
+			g2.modifieCase(l4, c4, "R");
+			int Xaléatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaléatoire = 1+(int) (Math.random()*((10-1)+1));
+				if (g2.accederCaseGrille(Xaléatoire, Yaléatoire).equals("???")) {
+						g2.apparaitrePotion(Xaléatoire, Yaléatoire);
+				}
 		}
 		if(move4.equals("U")) {
 			g2.testUtiliseP(p1);
 		}
 		System.out.println(p1.toString());
+		}
+	}
+	
+}
+		
+		
+		
+		
 		/*
 		
 		
@@ -756,62 +797,6 @@ System.out.println(" Test de mes class ");
 		
 		System.out.println("Les coordonnées de X sont "+p1.getCoorX()+" les coordonnées de Y sont "+p1.getCoorY());
 		*/
-	}
-	}
-}
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		/*

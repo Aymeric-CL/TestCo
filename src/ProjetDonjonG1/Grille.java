@@ -224,6 +224,7 @@ public class Grille {
 						grille[i][j]="...";
 						grille[i-1][j]=tmp;
 						
+						
 
 						return;
 						
@@ -295,6 +296,8 @@ public class Grille {
 			}
 		}
 	}
+
+
 	
 	public String chercheperso() {
 		int i;
@@ -339,23 +342,36 @@ public class Grille {
 		
 	}
 	
-	public void testCase(int l , int c,Grille g1 , Personnage perso) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille{
+	public void testCase(int l , int c,Grille g1 , Personnage perso ) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille{
 		String g=grille[l][c];
+		String m ;
 		if(g == "~~~" ) {
+			m = "~~~"; 
 			testCasePiege(perso);
+			g1.modifieCase(l, c, m);		
 		}
 		if(g == "ppp" ){
+			m = "ppp";
 			testCasePotion(perso);
+			g1.modifieCase(l, c, m);
+			
 		}
 		if( g == "###") {
-			testCaseMur(perso);	
+			m= "###";
+			testCaseMur(perso, g1);	
+			g1.modifieCase(l, c, m);
+			
+			
+			
 		}
+			
 		if( g == "vvv") {
-			
+			m = "vvv ";
+			g1.modifieCase(l, c, m);
 		}
-			
-	}
 		
+	}
+
 
 	
 	public void  testCasePiege (Personnage perso) throws ExceptionPiege, ExceptionObjet {
@@ -377,12 +393,12 @@ public class Grille {
 	public void testCasePotion(Personnage perso) throws ExceptionObjet, ExceptionPotion {
 		Potion p = new Potion();
 		System.out.println(p.toString());
-		perso.degatObjet(p);
+		
 		
 		
 		
 	}
-	public void testCaseMur(Personnage perso) throws ExceptionObjet, ExceptionMur {
+	public void testCaseMur(Personnage perso,Grille g1) throws ExceptionObjet, ExceptionMur, ExceptionGrille {
 		Mur m = new Mur();
 		System.out.println(m.toString());
 		m.modificationPv();
@@ -395,6 +411,8 @@ public class Grille {
 		if (g == "ppp") {
 			perso.ramasserPotion (p);
 			System.out.println(" La potion a été ramassez et ajouter a votre inventaire ");	
+			grille[l][c] = "...";
+			
 		}
 		else {
 			System.err.println("Vous n'etes pas sur une case potion ");
@@ -402,11 +420,10 @@ public class Grille {
 	
 	}
 	
+	
 	public void testUtiliseP(Personnage perso) throws ExceptionObjet, ExceptionPotion, ExceptionPersonnage, ExceptionInventaire{
 		Potion p = new Potion();
 		perso.utiliserPotion(p);
-		
-		
 	}
 	
 	public String chercheOb() {
@@ -421,29 +438,42 @@ public class Grille {
 		return null;
 	}
 	
-	public int trouverLigneOb(int i , int j) {
-		for(j=0 ; j<nbCol ; j++) {
-			for( i=0 ; i<nbLig ; i++) {
-				if(grille[i][j]== "vvv"){
-					return i ;
-				}
-			}
+	public void modifieCase(int l , int c , String modif ) throws ExceptionGrille {
+		String tmp;
+		if(modif == "ppp") {
+			tmp = grille[l][c];
+			grille[l][c]="ppp";	
 		}
-		return j;
+		if(modif.equals("###")) {
+			tmp=grille[l][c];
+			grille[l][c]="###";	
+			
+		}
+		if ( modif == "~~~") {
+			tmp = grille[l][c];
+			grille[l][c]="~~~";	
+		}
+		
+		if (modif == "vvv") {
+			tmp = grille[l][c];
+			grille[l][c]="vvv";	
+
+		}
+		if( modif == "R") {
+			tmp = grille[l][c];
+			grille[l][c]="???";	
+			
+		}
+		
 	}
-	public int trouverColonneOb(int i , int j) {
-		for( i=0 ; i<nbLig ; i++) {
-			for(j=0 ; j<nbCol ; j++) {
-				if(grille[i][j]== "XXX"){
-					return j ;
-				}
-			}
+	public boolean testDeplacement(int l , int c, Personnage perso,String deplacement ) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille {
+		String g=grille[l][c];
+		boolean bol = false ;
+		if(grille[l][c] == "###") {
+			bol = true;
+			
+
 		}
-		return j;
+		return bol ;
 	}
 }
-
-	
-	
-	
-
