@@ -262,7 +262,7 @@ public class TestJeu {
 		
 		
 		System.out.println(p1.toString());
-		System.out.println(g2.testDeplacement(l1, c1, p1, move1)); 
+		
 		
 		if( move1.equals("H")){
 			g2.testCase(l1, c1, g1, p1 );
@@ -825,8 +825,8 @@ System.out.println(" Test de mes class ");
 		System.out.println(" ");
 		System.out.println("     - H pour aller en HAUT ");
 		System.out.println("     - B pour aller en BAS ");
-		System.out.println("     - D pour aller a  DROITE ");
-		System.out.println("     - G pour aller a  GAUCHE ");
+		System.out.println("     - D pour aller aï¿½ DROITE ");
+		System.out.println("     - G pour aller aï¿½ GAUCHE ");
 		System.out.println("     - R pour ramasser un objet ");
 		System.out.println("     - U pour utiliser un objet ");
 		System.out.println(" ");

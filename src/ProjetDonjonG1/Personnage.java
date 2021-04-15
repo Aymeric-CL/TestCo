@@ -21,6 +21,10 @@ public class Personnage{
 		setCoorY(coorY);
 		
 	}
+	public Personnage(String name) throws ExceptionPersonnage {
+		setName(name);
+		setVie(50);
+	}
 	
 	
 	public int getVie() {

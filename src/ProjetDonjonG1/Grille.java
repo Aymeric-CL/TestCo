@@ -224,10 +224,6 @@ public class Grille {
 						grille[i][j]="...";
 						grille[i-1][j]=tmp;
 						
-						
-
-						return;
-						
 					}
 				}
 			}
@@ -342,9 +338,13 @@ public class Grille {
 		
 	}
 	
-	public void testCase(int l , int c,Grille g1 , Personnage perso ) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille{
+	public void testCase(int l , int c,Grille g1  ,Personnage perso ) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille{
 		String g=grille[l][c];
 		String m ;
+		if( g == "vvv") {
+			m = "vvv ";
+			g1.modifieCase(l, c, m);
+		}
 		if(g == "~~~" ) {
 			m = "~~~"; 
 			testCasePiege(perso);
@@ -359,16 +359,11 @@ public class Grille {
 		if( g == "###") {
 			m= "###";
 			testCaseMur(perso, g1);	
-			g1.modifieCase(l, c, m);
-			
-			
+			g1.modifieCase(l, c, m);	
 			
 		}
 			
-		if( g == "vvv") {
-			m = "vvv ";
-			g1.modifieCase(l, c, m);
-		}
+		
 		
 	}
 
@@ -465,15 +460,172 @@ public class Grille {
 			
 		}
 		
+	
 	}
-	public boolean testDeplacement(int l , int c, Personnage perso,String deplacement ) throws ExceptionPiege, ExceptionObjet, ExceptionPotion, ExceptionGrille {
-		String g=grille[l][c];
-		boolean bol = false ;
-		if(grille[l][c] == "###") {
-			bol = true;
+	
+	
+	
+	public void initialisationGrille(Grille g1 , Grille g2) throws ExceptionGrille {
+		g2.apparaitreMur(1, 1);// placement du premier mur sur la grille g2
+		g2.apparaitreMur(2, 6);// placement du deuxieme mur sur la grille g2
+		g2.apparaitreMur(2, 7);// ...
+		g2.apparaitreMur(2, 8);
+		g2.apparaitreMur(3, 4);
+		g2.apparaitreMur(6, 6);
+		g2.apparaitreMur(6, 7);
+		g2.apparaitreMur(6, 8);
+		g2.apparaitreMur(8, 2);
+		g2.apparaitreMur(8, 3);
+		g2.apparaitreMur(8, 10);
+		g2.apparaitreMur(9, 7);
+		/*
+		 * creation des potions aleatoire 
+		 */
+	
 			
-
+		int i1 = 0;
+		while(i1<5 ) {
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			
+			if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+				g2.apparaitrePotion(Xaleatoire, Yaleatoire);
+				i1+=1;
+			}
 		}
-		return bol ;
+		
+		
+		/*
+		 * creation des pieges aleatoire 
+		 */
+		
+		int i2 = 0;
+		while(i2<5 ) {
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			
+		if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+			g2.apparaitrePiege(Xaleatoire, Yaleatoire);
+		i2+=1;
+		}}
+			
+			
+		
+		
+		
+		/*
+		 * creation de objectif, on va tester si il y a au moins une case 
+		 * de libre autour de l'objectif que le joueur puisse y acceder c'est pour ca
+		 * qu'il y a autant de condition dans le if on a tester 4 cases.
+		 */
+	try {	
+	boolean t = true;
+	while(t) {
+			Boolean i3 = true;
+		while(i3) {
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  ||
+						g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???")||
+						g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???")|| 
+						g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???")) {
+				
+					g2.apparaitreObjectif(Xaleatoire, Yaleatoire);
+					i3 = false;
+					t= false;
+					
+				}
+					
+			}
+			
+		}
+	
+	}
+	}
+	catch(Exception e) {
+	
+	}
+/////////////////// Placement du personnage/////////////////////
+	
+	
+	int coordonneePersonnageXDepart = 0;
+	int coordonneePersonnageYDepart = 0;
+	boolean t2 = true; // initialisation de la variable T2 a true
+
+	while(t2) { //vas tourner temps qu'on a pas trouver une place au personnage
+		try {
+
+
+
+
+			Boolean i = true;
+			while(i) {
+				int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+				if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+					if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  |
+							g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???") |
+							g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???") | 
+							g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???") ) {
+						g1.apparaitrePersonnage(Xaleatoire, Yaleatoire);
+						g2.apparaitrePersonnage(Xaleatoire, Yaleatoire);
+						coordonneePersonnageXDepart = Xaleatoire;
+						coordonneePersonnageYDepart = Yaleatoire;
+						i = false;
+						t2= false;
+					}
+				}
+			}
+		}
+
+		catch(Exception e) {
+			//e.printStackTrace();
+		}
+	}
+	}
+	
+	
+	public void testDeplacement(String move1 ,String  move2,String move3,String move4) {
+		Scanner sc = new Scanner(System.in);
+		int boucle = 0;
+		while(boucle < 4) {
+			if (move1.equals("H") | move1.equals("B") | move1.equals("D") | move1.equals("G") | move1.equals("R")| move1.equals("U") ) {
+				boucle+=1;
+				}
+			else{
+				System.out.println(" Vous n'avez pas bien saisie le premier mouvement veillez le ressaisir : ");
+				move1  = sc.next();
+				boucle = 0;
+					}
+			if(move2.equals("H") || move2.equals("B") || move2.equals("D") || move2.equals("G") || move2.equals("R") || move2.equals("U") ) {
+				boucle+=1;
+				}
+			else {
+				System.out.println(" Vous n'avez pas bien saisie le deuxieme mouvement veuillez le ressaisir : ");
+				move2 = sc.next();
+				boucle = 0;
+			}
+			if(move3.equals("H") || move3.equals("B") || move3.equals("D") || move3.equals("G") || move3.equals("R") || move3.equals("U") ) {
+				boucle+=1;
+				}
+			else {
+				System.out.println(" Vous n'avez pas bien saisie le troisieme mouvement veuillez le ressaisir : ");
+				move3 = sc.next();
+				boucle = 0;
+			}
+			if(move4.equals("H") || move4.equals("B") || move4.equals("D") || move4.equals("G") || move4.equals("R") || move4.equals("U") ) {
+				boucle+=1;
+			}
+			else {
+				System.out.println(" Vous n'avez pas bien saisie le quatrieme mouvement veuillez le ressaisir : ");
+				move4 = sc.next();
+				boucle = 0;
+			}
+			
+		}
 	}
 }
+
+
+
