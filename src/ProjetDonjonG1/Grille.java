@@ -395,6 +395,7 @@ public class Grille {
 	}
 	public void testCaseMur(Personnage perso,Grille g1) throws ExceptionObjet, ExceptionMur, ExceptionGrille {
 		Mur m = new Mur();
+		System .out.println("vous activez votre super pourvoir et vous passez a traver le mur donc vous avez des degats.");
 		System.out.println(m.toString());
 		m.modificationPv();
 		perso.degatObjet(m);
@@ -466,18 +467,56 @@ public class Grille {
 	
 	
 	public void initialisationGrille(Grille g1 , Grille g2) throws ExceptionGrille {
-		g2.apparaitreMur(1, 1);// placement du premier mur sur la grille g2
-		g2.apparaitreMur(2, 6);// placement du deuxieme mur sur la grille g2
-		g2.apparaitreMur(2, 7);// ...
-		g2.apparaitreMur(2, 8);
-		g2.apparaitreMur(3, 4);
-		g2.apparaitreMur(6, 6);
-		g2.apparaitreMur(6, 7);
-		g2.apparaitreMur(6, 8);
-		g2.apparaitreMur(8, 2);
-		g2.apparaitreMur(8, 3);
-		g2.apparaitreMur(8, 10);
-		g2.apparaitreMur(9, 7);
+		
+		
+		/*
+		 * creation de objectif, on va tester si il y a au moins une case 
+		 * de libre autour de l'objectif que le joueur puisse y acceder c'est pour ca
+		 * qu'il y a autant de condition dans le if on a tester 4 cases.
+		 */
+		
+		try {	
+			boolean t = true;
+			while(t) {
+					Boolean i3 = true;
+				while(i3) {
+					int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+					int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+					if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+						if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  ||
+								g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???")||
+								g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???")|| 
+								g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???")) {
+						
+							g2.apparaitreObjectif(Xaleatoire, Yaleatoire);
+							i3 = false;
+							t= false;
+							
+						}
+							
+					}
+					
+				}
+			
+			}
+			}
+			catch(Exception e) {
+			
+			}
+		/*
+		 * creation de mure aleatoire
+		 */
+		int i = 0;
+		while (i<12 ) {
+			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
+			if (g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
+				g2.apparaitreMur(Xaleatoire, Yaleatoire);
+				i+=1;
+			}
+		}
+		
+		
 		/*
 		 * creation des potions aleatoire 
 		 */
@@ -513,39 +552,8 @@ public class Grille {
 		
 		
 		
-		/*
-		 * creation de objectif, on va tester si il y a au moins une case 
-		 * de libre autour de l'objectif que le joueur puisse y acceder c'est pour ca
-		 * qu'il y a autant de condition dans le if on a tester 4 cases.
-		 */
-	try {	
-	boolean t = true;
-	while(t) {
-			Boolean i3 = true;
-		while(i3) {
-			int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
-			int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
-			if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
-				if (g2.accederCaseGrille(Xaleatoire, Yaleatoire-1).equals("???")  ||
-						g2.accederCaseGrille(Xaleatoire-1, Yaleatoire).equals("???")||
-						g2.accederCaseGrille(Xaleatoire, Yaleatoire+1).equals("???")|| 
-						g2.accederCaseGrille(Xaleatoire+1, Yaleatoire).equals("???")) {
-				
-					g2.apparaitreObjectif(Xaleatoire, Yaleatoire);
-					i3 = false;
-					t= false;
-					
-				}
-					
-			}
-			
-		}
+		
 	
-	}
-	}
-	catch(Exception e) {
-	
-	}
 /////////////////// Placement du personnage/////////////////////
 	
 	
@@ -559,8 +567,8 @@ public class Grille {
 
 
 
-			Boolean i = true;
-			while(i) {
+			Boolean i0 = true;
+			while(i0) {
 				int Xaleatoire = 1+(int) (Math.random()*((10-1)+1));
 				int Yaleatoire = 1+(int) (Math.random()*((10-1)+1));
 				if(g2.accederCaseGrille(Xaleatoire, Yaleatoire).equals("???")) {
@@ -572,7 +580,7 @@ public class Grille {
 						g2.apparaitrePersonnage(Xaleatoire, Yaleatoire);
 						coordonneePersonnageXDepart = Xaleatoire;
 						coordonneePersonnageYDepart = Yaleatoire;
-						i = false;
+						i0 = false;
 						t2= false;
 					}
 				}

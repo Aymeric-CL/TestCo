@@ -32,8 +32,9 @@ public class Objectif extends Objet{
 			if(caseP.equals(box) ) {
 				System.out.println("L'objectif est atteint ");
 				bol = false ;
-				
-		
+			}
+			else {
+				System.out.println("L'objectif n'est pas atteint ");
 			}
 			return bol;
 	}
@@ -42,17 +43,6 @@ public class Objectif extends Objet{
 	
 	public int modificationPv() {
 		return 0;
-	}
-	
-	public boolean objAtteint() {
-		boolean t = true;
-		return t;
-	}
-
-
-
-	
-	
-	
+	}	
 }
 
