@@ -3,7 +3,7 @@ package ProjetDonjonG1;
 public class Mur extends Objet {
 	
 	/*
-	 * création de la variable degats
+	 * creation de la variable degats
 	 */
 	private int degats;
 	
@@ -44,24 +44,5 @@ public class Mur extends Objet {
 		return super.toString()+" les degats du mur son de "+getDegats();
 				
 	}
-	
-
-	
-	
-	
-
-
-	
-
-
-
-
-
-	
-
-	
-	
-	
-	
 
 }

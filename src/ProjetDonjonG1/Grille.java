@@ -135,9 +135,9 @@ public class Grille {
 			grille[l][c]= "~~~" ; 
 		}
 		else {
-			throw new ExceptionGrille("Zone occupée");
+			throw new ExceptionGrille("Zone occupee");
 		}
-		return " Le piege est placé ";
+		return " Le piege est place ";
 	}
 	
 	
@@ -153,9 +153,9 @@ public class Grille {
 			grille[l][c]= "vvv"; 
 		}
 		else {
-			throw new ExceptionGrille("Zone occupée");
+			throw new ExceptionGrille("Zone occupee");
 		}
-		return " L'objectif est placé ";
+		return " L'objectif est place ";
 	}
 	
 	
@@ -172,9 +172,9 @@ public class Grille {
 			
 		}
 		else {
-			throw new ExceptionGrille("Zone occupée");
+			throw new ExceptionGrille("Zone occupee");
 		}
-		return " Le mur est placé ";
+		return " Le mur est place ";
 	}
 	
 	
@@ -192,9 +192,9 @@ public class Grille {
 			
 		}
 		else {
-			throw new ExceptionGrille("Zone occupée");
+			throw new ExceptionGrille("Zone occupee");
 		}
-		return " Le personnage est placé ";
+		return " Le personnage est place ";
 	}
 	
 	
@@ -265,7 +265,7 @@ public class Grille {
 							grille[i][j+1]=tmp;
 						else
 							grille[i][j+1]=tmp;
-						t.changementCoordonnée(i, j+1);
+						t.changementCoordonnee(i, j+1);
 						*/
 						return;
 					}
@@ -288,7 +288,7 @@ public class Grille {
 							grille[i][j-1]=tmp;
 						else
 							grille[i][j-1]=tmp;
-						t.changementCoordonnée(i, j-1);
+						t.changementCoordonnee(i, j-1);
 						*/
 						return;
 					}
@@ -410,7 +410,7 @@ public class Grille {
 		Potion p = new Potion();
 		if (g == "ppp") {
 			perso.ramasserPotion (p);
-			System.out.println(" La potion a été ramassez et ajouter a votre inventaire ");	
+			System.out.println(" La potion a ete ramassez et ajouter a votre inventaire ");	
 			grille[l][c] = "...";
 			
 		}

@@ -176,12 +176,12 @@ public class TestJeu {
 	
 	
 	while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ){
-		System.out.println("        Veuilliez saisir vos 4 prochain mouvement  : ");
+		System.out.println("        Veuilliez saisir vos 4 prochains mouvements  : ");
 		System.out.println(" ");
 		System.out.println("     - H pour aller en HAUT ");
 		System.out.println("     - B pour aller en BAS ");
-		System.out.println("     - D pour aller √† DROITE ");
-		System.out.println("     - G pour aller √† GAUCHE ");
+		System.out.println("     - D pour aller a† DROITE ");
+		System.out.println("     - G pour aller a† GAUCHE ");
 		System.out.println("     - R pour ramasser un objet ");
 		System.out.println("     - U pour utiliser un objet ");
 		System.out.println(" ");
@@ -506,7 +506,7 @@ System.out.println(" Test de mes class ");
 		}
 			
 		if(g2.accederCaseGrille(6, 6).equals("###")) {
-			System.out.println(" rentr√© dans mur");
+			System.out.println(" rentre dans mur");
 			p1.degatObjet(mur);
 			g1.apparaitrePersonnage(cX0, cY0);
 			g1.apparaitreMur(cX1, cY1);
