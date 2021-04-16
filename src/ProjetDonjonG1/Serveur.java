@@ -49,7 +49,7 @@ public class Serveur{
 				s= ss.accept();
 				++nbClients;
 				Client player = new Client(s);
-				System.out.println("Connexion réussi");
+				System.out.println("Connexion reussi");
 				player.start();
 				
 			}
