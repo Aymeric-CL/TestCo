@@ -124,19 +124,19 @@ public class Client  implements Runnable {
 	joueur.traiterMessage(message1 , g1, g2,p1);
 	g2.initialisationGrille(g1, g2);
 	g1.afficher();
-	
+
 	System.out.println("Taper OK quand vous ete pres a commencer ");
 
 	String message2 = sc.next();
 	if(message2.equals("OK")|| message2.equals("ok") ) {
 		
-		while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ){
-			System.out.println("        Veuilliez saisir vos 4 prochain déplacements  : ");
+		while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ) {
+			System.out.println("        Veuilliez saisir vos 4 prochain déplacements  : ");	
 			System.out.println(" ");
 			System.out.println("     - H pour aller en HAUT ");
 			System.out.println("     - B pour aller en BAS ");
-			System.out.println("     - D pour aller à DROITE ");
-			System.out.println("     - G pour aller à GAUCHE ");
+			System.out.println("     - D pour aller a� DROITE ");
+			System.out.println("     - G pour aller a� GAUCHE ");
 			System.out.println("     - R pour ramasser un objet ");
 			System.out.println("     - U pour utiliser un objet ");
 			System.out.println(" ");
