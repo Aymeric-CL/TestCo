@@ -3,7 +3,7 @@ package ProjetDonjonG1;
 public class Objectif extends Objet{
 	private  String[][] box ; 
 	
-// box est la case où ce trouve l'objectif a atteindre pour finir le jeu
+// box est la case ou se trouve l'objectif a atteindre pour finir le jeu
 	
 	
 	

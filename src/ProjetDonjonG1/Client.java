@@ -25,9 +25,9 @@ public class Client  implements Runnable {
 			Scanner sc = new Scanner(System.in); 
 			String p = sc.next();
 			
-			System.out.println("Votre personnage a ete cree est place dans le donjon");
+			System.out.println("Votre personnage a ete cree et place dans le donjon");
 			System.out.println(" ");
-			System.out.println("Le but du jeu et de reussir a tombe sur la bonne case pour cela vous allez devoir effectuer 4 déplacements et le personnage ce deplacera dans le donjon ");
+			System.out.println("Le but du jeu et de reussir a tombe sur la bonne case pour cela vous allez devoir effectuer 4 deplacements et le personnage se deplacera dans le donjon ");
 			System.out.println("Attention dans ce donjon il y a des pieges qui vous fera perdre de la vie");
 			System.out.println("mais rassurez vous il y a aussi des potions que vous pouvez rammasser et utiliser.");
 			System.out.println(" ");
@@ -117,7 +117,7 @@ public class Client  implements Runnable {
 	Client joueur = new Client (socket);
 
 	
-	System.out.println("pour cree votre personnage taper: C ");
+	System.out.println("pour creer votre personnage taper: C ");
 	Scanner sc = new Scanner(System.in); 
 	String message1 = sc.next();
 	
@@ -125,18 +125,18 @@ public class Client  implements Runnable {
 	g2.initialisationGrille(g1, g2);
 	g1.afficher();
 
-	System.out.println("Taper OK quand vous ete pres a commencer ");
+	System.out.println("Taper OK quand vous etes pres a commencer ");
 
 	String message2 = sc.next();
 	if(message2.equals("OK")|| message2.equals("ok") ) {
 		
 		while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ) {
-			System.out.println("        Veuilliez saisir vos 4 prochain déplacements  : ");	
+			System.out.println("        Veuillez saisir vos 4 prochain deplacements  : ");	
 			System.out.println(" ");
 			System.out.println("     - H pour aller en HAUT ");
 			System.out.println("     - B pour aller en BAS ");
-			System.out.println("     - D pour aller a� DROITE ");
-			System.out.println("     - G pour aller a� GAUCHE ");
+			System.out.println("     - D pour aller a DROITE ");
+			System.out.println("     - G pour aller a GAUCHE ");
 			System.out.println("     - R pour ramasser un objet ");
 			System.out.println("     - U pour utiliser un objet ");
 			System.out.println(" ");
@@ -158,7 +158,7 @@ public class Client  implements Runnable {
 		}
 		
 	}else {
-		System.out.println(" veuiller ressaisir OK");
+		System.out.println(" veuillez ressaisir OK");
 		 message2 = sc.next();
 	}
 	}

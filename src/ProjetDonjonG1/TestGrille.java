@@ -7,7 +7,7 @@ public class TestGrille {
 		/*
 		
 		// TODO Auto-generated method stub
-		//crée la grille
+		//cree la grille
 		Grille g1=new Grille("g1");
 		Grille g2 = new Grille("g2");
 		

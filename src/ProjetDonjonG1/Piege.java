@@ -42,7 +42,7 @@ public class Piege extends Objet {
 			this.pvEnMoins = pvEnMoins; 
 		}
 		else {
-			throw new ExceptionPiege("pvEnMoins est surement supérieur à 0");
+			throw new ExceptionPiege("pvEnMoins est surement superieur a� 0");
 		}
 	}
 	
@@ -53,19 +53,19 @@ public class Piege extends Objet {
 	public int piegeMequa( )throws ExceptionPiege {
 		int piegeAleatoire = 1 + (int)(Math.random() * ((3 - 1) + 1));
 		if(piegeAleatoire == 1 ) {
-			System.out.print("Vous avez declenché une chute de pierre ");
+			System.out.print("Vous avez declenche une chute de pierre ");
 			pvEnMoins-=5;
 		}
 		else if (piegeAleatoire == 2 ){
-			System.out.print("Vous êtes tombé(e) dans une fosse ");
+			System.out.print("Vous etes tombe(e) dans une fosse ");
 			pvEnMoins-=2;	
 		}
 		else if (piegeAleatoire == 3 ){
-			System.out.print("Vous êtes dans une salle remplie d'eau ");
+			System.out.print("Vous etes dans une salle remplie d'eau ");
 			pvEnMoins-=1;
 		}
 		else {
-			throw new ExceptionPiege("Le piege méquanique n'existe pas");
+			throw new ExceptionPiege("Le piege mecanique n'existe pas");
 		}
 		return pvEnMoins;
 		
@@ -78,15 +78,15 @@ public class Piege extends Objet {
 	public int piegeMag(  )throws ExceptionPiege {
 		int piegeAleatoire = 1 + (int)(Math.random() * ((2 - 1) + 1));
 		if(piegeAleatoire == 1) {
-			System.out.print("Vous avez reçus un sort d'immobilité ");
+			System.out.print("Vous avez recus un sort d'immobilite ");
 			pvEnMoins-=3;
 		}
 		else if (piegeAleatoire == 2 ){
-			System.out.print("Vous avez reçus un sort d'aveuglement ");
+			System.out.print("Vous avez recus un sort d'aveuglement ");
 			pvEnMoins-=2;
 		}
 		else {
-			throw new ExceptionPiege("Le piege méquanique n'existe pas ");
+			throw new ExceptionPiege("Le piege mecanique n'existe pas ");
 		}
 		return  pvEnMoins ;
 	}

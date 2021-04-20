@@ -4,12 +4,12 @@ public class Potion extends Objet{
 	
 	
 	/*
-	 * création de la variable potion
+	 * creation de la variable potion
 	 */
 	private int potion;
 	
 	/*
-	 * création du constructeur de potion
+	 * creation du constructeur de potion
 	 */
 	public Potion() throws ExceptionObjet, ExceptionPotion {
 		super("Potion");

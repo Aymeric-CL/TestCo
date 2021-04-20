@@ -10,7 +10,7 @@ public class Mur extends Objet {
 	
 	/*
 	 * Constructeur de la classe Mur qui prends en parametre
-	 * le nom du mur ex : mur1, mur2 ect.. et les dégats
+	 * le nom du mur ex : mur1, mur2 ect.. et les degats
 	 * que ce mur va enlever.
 	 */
 	public Mur() throws ExceptionObjet, ExceptionMur {

@@ -176,7 +176,7 @@ public class TestJeu {
 	
 	
 	while(p1.getVie()> 0 && objectif.obectifAAtteindre(g1.chercheperso(), g2.chercheOb()) ){
-		System.out.println("        Veuilliez saisir vos 4 prochains mouvements  : ");
+		System.out.println("        Veuillez saisir vos 4 prochains mouvements  : ");
 		System.out.println(" ");
 		System.out.println("     - H pour aller en HAUT ");
 		System.out.println("     - B pour aller en BAS ");
@@ -214,7 +214,7 @@ public class TestJeu {
 				boucle+=1;
 				}
 			else{
-				System.out.println(" Vous n'avez pas bien saisie le premier mouvement veillez le ressaisir : ");
+				System.out.println(" Vous n'avez pas bien saisie le premier mouvement veuillez le ressaisir : ");
 				move1  = sc.next();
 				boucle = 0;
 					}

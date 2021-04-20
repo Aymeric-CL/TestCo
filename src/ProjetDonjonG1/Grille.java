@@ -117,9 +117,9 @@ public class Grille {
 			grille[l][c]= "ppp"; 
 		}
 		else {
-			throw new ExceptionGrille("Zone occupée");
+			throw new ExceptionGrille("Zone occupee");
 		}
-		return " La potion est placé ";
+		return " La potion est place ";
 	}
 	
 	
@@ -406,7 +406,7 @@ public class Grille {
 		Potion p = new Potion();
 		if (g == "ppp") {
 			perso.ramasserPotion (p);
-			System.out.println(" La potion a ete ramassez et ajouter a votre inventaire ");	
+			System.out.println(" La potion a ete ramassee et ajoutee a votre inventaire ");	
 			grille[l][c] = "...";
 			
 		}
@@ -504,7 +504,7 @@ public class Grille {
 			
 			}
 		/*
-		 * creation de mure aleatoire
+		 * creation de mur aleatoire
 		 */
 		int i = 0;
 		while (i<12 ) {
@@ -518,7 +518,7 @@ public class Grille {
 		
 		
 		/*
-		 * creation des potions aleatoire 
+		 * creation des potions aleatoires 
 		 */
 	
 			
@@ -535,7 +535,7 @@ public class Grille {
 		
 		
 		/*
-		 * creation des pieges aleatoire 
+		 * creation des pieges aleatoires
 		 */
 		
 		int i2 = 0;
@@ -561,7 +561,7 @@ public class Grille {
 	int coordonneePersonnageYDepart = 0;
 	boolean t2 = true; // initialisation de la variable T2 a true
 
-	while(t2) { //vas tourner temps qu'on a pas trouver une place au personnage
+	while(t2) { //va tourner temps qu'on a pas trouver une place au personnage
 		try {
 
 
@@ -602,7 +602,7 @@ public class Grille {
 				boucle+=1;
 				}
 			else{
-				System.out.println(" Vous n'avez pas bien saisie le premier mouvement veillez le ressaisir : ");
+				System.out.println(" Vous n'avez pas bien saisie le premier mouvement veuillez le ressaisir : ");
 				move1  = sc.next();
 				boucle = 0;
 					}

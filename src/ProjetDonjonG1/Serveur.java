@@ -21,7 +21,7 @@ public class Serveur
       while (true) // attente en boucle de connexion (bloquant sur ss.accept)
       {
         new Service(ss.accept(),serveur); // un client se connecte, un nouveau thread client est lancé
-        System.out.println("connection reussi ");
+        System.out.println("connection reussie ");
       }
     }
     catch (Exception e) { 

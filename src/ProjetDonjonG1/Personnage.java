@@ -34,7 +34,7 @@ public class Personnage{
 		if (vie >=0 )
 			this.vie=vie;
 		else
-			throw new ExceptionPersonnage ("Le personnage n'a plus du vie");
+			throw new ExceptionPersonnage ("Le personnage n'a plus de vie");
 		
 		
 	}
