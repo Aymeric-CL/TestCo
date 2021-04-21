@@ -7,7 +7,7 @@ import java.util.*;
 //** Classe principale du serveur, gère les infos globales **
 public class Serveur
 {
-  private Vector tabClients = new Vector(); // contiendra tous les flux de sortie vers les clients
+  
   private int nbClients=0; // nombre total de clients connectés
 
   //** Methode : la première méthode exécutée, elle attend les connexions **
@@ -33,15 +33,15 @@ public class Serveur
 
   
   //** Methode : ajoute un nouveau client dans la liste **
-  synchronized public int addClient(PrintWriter out)
-  {
-    nbClients++; // un client en plus ! ouaaaih
-    tabClients.addElement(out); // on ajoute le nouveau flux de sortie au tableau
-    return tabClients.size()-1; // on retourne le numéro du client ajouté (size-1)
+  synchronized public int addClient(PrintWriter out){
+    return nbClients++;
+   
   }
 
   
   
+  
+ // où j'ai trouver le code que j'ai legerement modifié : https://defaut.developpez.com/tutoriel/java/serveur/multithread/ 
 
 }
 	  
